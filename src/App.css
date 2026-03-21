@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+:root {
+  --space-black: #060607;
+  --deep-blue: #111f28;
+  --steel-gray: #484e52;
+  --moon-silver: #afb9c5;
+  --stardust: #e3cdb3;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  margin: 0;
+  background: var(--space-black);
+  color: var(--moon-silver);
 }
 
-.App-header {
-  background-color: #282c34;
+.page {
   min-height: 100vh;
+}
+
+.hero-banner {
+  width: 100%;
+  height: 44vh;
+  min-height: 320px;
+  max-height: 520px;
+  overflow: hidden;
+  border-bottom: 2px solid var(--steel-gray);
+}
+
+.hero-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.book-section {
+  width: min(1200px, 92vw);
+  height: 600px;
+  margin: 48px auto;
+  padding: 28px;
+  border: 1px solid var(--steel-gray);
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--deep-blue), var(--space-black));
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 36px;
 }
 
-.App-link {
-  color: #61dafb;
+.book-cover-wrap {
+  width: 33.333%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.book-cover {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--steel-gray);
+  box-shadow: 0 24px 42px rgba(0, 0, 0, 0.35);
+}
+
+.book-info {
+  width: 66.667%;
+  text-align: left;
+}
+
+.book-info h1 {
+  margin: 0 0 16px;
+  color: var(--stardust);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  letter-spacing: 0.02em;
+}
+
+.book-info p {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--moon-silver);
+  line-height: 1.7;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+}
+
+@media (max-width: 900px) {
+  .book-section {
+    height: auto;
+    min-height: 600px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .book-cover-wrap,
+  .book-info {
+    width: 100%;
+  }
+
+  .book-cover-wrap {
+    height: 380px;
+    justify-content: center;
+  }
+
+  .book-cover {
+    max-width: 340px;
+    width: 100%;
   }
 }
