@@ -1,9 +1,10 @@
 :root {
-  --space-black: #060607;
-  --deep-blue: #111f28;
-  --steel-gray: #484e52;
-  --moon-silver: #afb9c5;
-  --stardust: #e3cdb3;
+  --bg-main: #111f28;
+  --sky: #1b2635;
+  --sky-dark: #121b24;
+  --curtain: #0d1b26;
+  --curtain-light: #1d3046;
+  --text: #a09e9c;
 }
 
 * {
@@ -12,41 +13,87 @@
 
 body {
   margin: 0;
-  background: var(--space-black);
-  color: var(--moon-silver);
+  color: var(--text);
+  background-color: var(--bg-main);
+  background-image: url('./assert/space-only-wide.png');
+  background-position: top center;
+  background-repeat: repeat-y;
+  background-size: 70% auto;
 }
 
 .page {
   min-height: 100vh;
 }
 
-.hero-banner {
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 44vh;
-  min-height: 320px;
-  max-height: 520px;
-  overflow: hidden;
-  border-bottom: 2px solid var(--steel-gray);
+  z-index: 100;
+  background-color: transparent;
+  transition: background-color 220ms ease;
 }
 
-.hero-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.site-header--visible {
+  background-color: rgba(13, 27, 38, 0.2);
+}
+
+.site-nav {
+  width: min(1200px, 92vw);
+  height: 72px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 32px;
+}
+
+.site-nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}
+
+.hero-section {
+  height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.book-section-wrapper {
+  height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+.site-title {
+  margin: 0;
+  color: var(--text);
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 4.2vw, 4.2rem);
+  font-weight: 500;
 }
 
 .book-section {
   width: min(1200px, 92vw);
   height: 600px;
-  margin: 48px auto;
+  margin: 0 auto;
   padding: 28px;
-  border: 1px solid var(--steel-gray);
+  border: 1px solid var(--sky);
   border-radius: 18px;
-  background: linear-gradient(135deg, var(--deep-blue), var(--space-black));
+  background: linear-gradient(140deg, var(--curtain-light), var(--curtain));
   display: flex;
   align-items: center;
   gap: 36px;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.38);
 }
 
 .book-cover-wrap {
@@ -61,7 +108,7 @@ body {
   height: 70%;
   object-fit: cover;
   border-radius: 12px;
-  border: 1px solid var(--steel-gray);
+  border: 1px solid var(--sky-dark);
   box-shadow: 0 24px 42px rgba(0, 0, 0, 0.35);
 }
 
@@ -70,9 +117,9 @@ body {
   text-align: left;
 }
 
-.book-info h1 {
+.book-info h2 {
   margin: 0 0 16px;
-  color: var(--stardust);
+  color: var(--text);
   font-size: clamp(2rem, 4vw, 3.2rem);
   letter-spacing: 0.02em;
 }
@@ -80,12 +127,31 @@ body {
 .book-info p {
   margin: 0;
   max-width: 62ch;
-  color: var(--moon-silver);
+  color: var(--text);
   line-height: 1.7;
   font-size: clamp(1rem, 1.4vw, 1.25rem);
 }
 
 @media (max-width: 900px) {
+  body {
+    background-size: 82% auto;
+  }
+
+  .site-nav {
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .hero-section,
+  .book-section-wrapper {
+    height: auto;
+    min-height: 800px;
+  }
+
+  .hero-section {
+    min-height: 620px;
+  }
+
   .book-section {
     height: auto;
     min-height: 600px;
@@ -107,5 +173,28 @@ body {
   .book-cover {
     max-width: 340px;
     width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  body {
+    background-size: 100% auto;
+  }
+
+  .site-nav {
+    gap: 14px;
+    height: 64px;
+  }
+
+  .site-nav a {
+    font-size: 0.92rem;
+  }
+
+  .hero-section {
+    min-height: 500px;
+  }
+
+  .book-section-wrapper {
+    min-height: 700px;
   }
 }
