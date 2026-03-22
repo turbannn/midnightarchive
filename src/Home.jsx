@@ -1,28 +1,6 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-
-function App() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 8);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+function Home({ onOpenBookPage }) {
   return (
-    <div className="page">
-      <header className={`site-header ${isScrolled ? 'site-header--visible' : ''}`}>
-        <nav className="site-nav" aria-label="Primary">
-          <a href="#discussion">Discussion</a>
-          <a href="#blog">Blog</a>
-          <a href="#profile">Profile</a>
-        </nav>
-      </header>
-
+    <>
       <section className="hero-section">
         <h1 className="site-title">Midnight Moon Archive</h1>
       </section>
@@ -43,11 +21,14 @@ function App() {
               author title block: cover on the left, title and short text on the
               right.
             </p>
+            <button type="button" className="primary-button" onClick={onOpenBookPage}>
+              Open Book Page
+            </button>
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }
 
-export default App;
+export default Home;
