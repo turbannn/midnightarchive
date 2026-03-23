@@ -6,13 +6,32 @@ import Tommy from './Tommy';
 import Ryan from './Ryan';
 import Ashlie from './Ashlie';
 import Scott from './Scott';
+import Profile from './Profile';
+import Auth from './Auth';
+import Blog from './Blog';
+import Discussion from './Discussion';
+import CreatePost from './CreatePost';
 import StarfieldEffect from './StarfieldEffect';
 import './App.css';
 
 const getRouteFromUrl = () => {
   const params = new URLSearchParams(window.location.search);
   const page = params.get('page');
-  const supportedPages = ['home', 'book', 'scott', 'brianna', 'tommy', 'ryan', 'ashlie'];
+  const supportedPages = [
+    'home',
+    'book',
+    'blog',
+    'discussion',
+    'create-post',
+    'profile',
+    'login',
+    'register',
+    'scott',
+    'brianna',
+    'tommy',
+    'ryan',
+    'ashlie'
+  ];
   return supportedPages.includes(page || '') ? page : 'home';
 };
 
@@ -20,6 +39,7 @@ function App() {
   const [route, setRoute] = useState(getRouteFromUrl);
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,6 +81,54 @@ function App() {
     window.scrollTo(0, 0);
   };
 
+  const openProfilePage = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('page', 'profile');
+    window.history.pushState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
+    setRoute('profile');
+    window.scrollTo(0, 0);
+  };
+
+  const openBlogPage = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('page', 'blog');
+    window.history.pushState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
+    setRoute('blog');
+    window.scrollTo(0, 0);
+  };
+
+  const openDiscussionPage = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('page', 'discussion');
+    window.history.pushState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
+    setRoute('discussion');
+    window.scrollTo(0, 0);
+  };
+
+  const openCreatePostPage = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('page', 'create-post');
+    window.history.pushState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
+    setRoute('create-post');
+    window.scrollTo(0, 0);
+  };
+
+  const openLoginPage = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('page', 'login');
+    window.history.pushState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
+    setRoute('login');
+    window.scrollTo(0, 0);
+  };
+
+  const openRegisterPage = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('page', 'register');
+    window.history.pushState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
+    setRoute('register');
+    window.scrollTo(0, 0);
+  };
+
   const openHomePage = () => {
     const url = new URL(window.location.href);
     url.searchParams.delete('page');
@@ -82,6 +150,28 @@ function App() {
     return characterPages[route] ?? <Home onOpenBookPage={openBookPage} />;
   };
 
+  const handleAuthSubmit = ({ nickname }, mode) => {
+    const normalizedNickname =
+      nickname && nickname.trim().length > 0
+        ? nickname.trim()
+        : mode === 'login'
+          ? 'User'
+          : 'New User';
+
+    setUser({
+      nickname: normalizedNickname,
+      tags: ['Reader', 'Night Archive', 'Member'],
+      avatar:
+        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=500&q=80'
+    });
+    openProfilePage();
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    openProfilePage();
+  };
+
   return (
     <div className="page">
       <StarfieldEffect />
@@ -94,9 +184,15 @@ function App() {
         }}
       >
         <nav className="site-nav" aria-label="Primary">
-          <span>Discussion</span>
-          <span>Blog</span>
-          <span>Profile</span>
+          <button type="button" onClick={openDiscussionPage}>
+            Discussion
+          </button>
+          <button type="button" onClick={openBlogPage}>
+            Blog
+          </button>
+          <button type="button" onClick={openProfilePage}>
+            Profile
+          </button>
         </nav>
       </header>
 
@@ -104,6 +200,18 @@ function App() {
         <Home onOpenBookPage={openBookPage} />
       ) : route === 'book' ? (
         <Blackwood onBack={openHomePage} onOpenCharacter={openCharacterPage} />
+      ) : route === 'blog' ? (
+        <Blog />
+      ) : route === 'discussion' ? (
+        <Discussion onOpenCreatePost={openCreatePostPage} />
+      ) : route === 'create-post' ? (
+        <CreatePost onBackToDiscussion={openDiscussionPage} />
+      ) : route === 'profile' ? (
+        <Profile user={user} onOpenLogin={openLoginPage} onLogout={handleLogout} />
+      ) : route === 'login' ? (
+        <Auth mode="login" onAuthSubmit={handleAuthSubmit} onSwitchMode={openRegisterPage} />
+      ) : route === 'register' ? (
+        <Auth mode="register" onAuthSubmit={handleAuthSubmit} onSwitchMode={openLoginPage} />
       ) : (
         renderCharacterPage()
       )}
