@@ -1,4 +1,4 @@
-import spotifyLogo from './assert/spotify-logo-png.png';
+import spotifyLogo from '../../assert/spotify-logo-png.png';
 
 const characterCards = [
   {

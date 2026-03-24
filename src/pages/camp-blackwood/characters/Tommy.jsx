@@ -1,16 +1,16 @@
-import spotifyLogo from './assert/spotify-logo-png.png';
+import spotifyLogo from '../../../assert/spotify-logo-png.png';
 
-function Scott({ onBackToBook }) {
+function Tommy({ onBackToBook }) {
   return (
     <main className="scott-page">
       <section className="scott-hero-section">
         <div className="scott-hero-card">
           <div className="scott-hero-content">
             <p className="feature-label">Character Profile</p>
-            <h1>Scott</h1>
+            <h1>Tommy</h1>
             <p>
-              Placeholder character description. Replace this content with the
-              final biography, key plot role, and emotional arc details.
+              Tommy is the restless field runner. He moves fast, improvises under
+              pressure, and turns risky moments into narrow escapes.
             </p>
             <button type="button" className="primary-button" onClick={onBackToBook}>
               Back To Book Page
@@ -19,8 +19,8 @@ function Scott({ onBackToBook }) {
           <div className="scott-hero-media-wrap">
             <img
               className="scott-hero-media"
-              src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80"
-              alt="Scott portrait placeholder"
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=900&q=80"
+              alt="Tommy portrait placeholder"
             />
           </div>
         </div>
@@ -30,14 +30,12 @@ function Scott({ onBackToBook }) {
         <h2 className="scott-story-title">Story</h2>
         <div className="scott-story-card">
           <p>
-            Scott grew up between cold ports and railway lights, always carrying a
-            notebook with unfinished maps and names. When the city archives were
-            closed after a sudden fire, he started collecting fragments from private
-            letters, cassette recordings, and forgotten station journals. Piece by
-            piece, he discovered that one missing route connected every tragedy in
-            his family line. His journey became less about solving a mystery and
-            more about deciding what truth is worth preserving when memory can hurt
-            as much as silence.
+            Tommy learned to navigate abandoned transit lines long before he joined
+            the archive search. His memory of side routes and hidden platforms saves
+            the team more than once, especially when official maps become useless.
+            Under his impulsive confidence is a fear of standing still, because still
+            moments remind him of the night he failed to return in time for someone
+            he loved. His arc centers on facing that guilt instead of outrunning it.
           </p>
         </div>
       </section>
@@ -54,7 +52,7 @@ function Scott({ onBackToBook }) {
               target="_blank"
               rel="noreferrer"
             >
-              Scott`s Playlist
+              Tommy Playlist
             </a>
           </div>
         </div>
@@ -63,4 +61,4 @@ function Scott({ onBackToBook }) {
   );
 }
 
-export default Scott;
+export default Tommy;

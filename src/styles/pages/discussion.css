@@ -1,0 +1,94 @@
+﻿.discussion-section {
+  width: min(1320px, 95vw);
+  margin: 0 auto;
+  min-height: 1000px;
+  padding: 138px 0 46px;
+}
+
+.discussion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  gap: 18px;
+}
+
+.discussion-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  letter-spacing: 0.04em;
+}
+
+.discussion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.discussion-card {
+  border-radius: 16px;
+  border: 1px solid var(--sky);
+  background: linear-gradient(165deg, rgba(29, 48, 70, 0.95), rgba(18, 27, 36, 0.96));
+  box-shadow:
+    0 20px 44px rgba(0, 0, 0, 0.34),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  padding: clamp(16px, 2.2vw, 24px);
+}
+
+.discussion-card h2 {
+  margin: 0 0 10px;
+  font-size: 1.16rem;
+}
+
+.discussion-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.discussion-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.discussion-tag {
+  min-height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.86rem;
+  border: 1px solid;
+}
+
+.discussion-tag-question {
+  color: #ffdd8c;
+  border-color: #ffdd8c;
+  background: rgba(255, 200, 80, 0.18);
+}
+
+.discussion-tag-discussion {
+  color: #8ff0a0;
+  border-color: #8ff0a0;
+  background: rgba(85, 220, 120, 0.18);
+}
+
+.discussion-tag-book {
+  color: #c68484;
+  border-color: #7d4e4e;
+  background: rgba(80, 28, 28, 0.38);
+}
+
+@media (max-width: 900px) {
+  .discussion-section {
+    min-height: 800px;
+    padding-top: 124px;
+  }
+
+  .discussion-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

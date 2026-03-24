@@ -1,42 +1,43 @@
 import { useEffect, useState } from 'react';
-import Blackwood from './Blackwood';
+import Blackwood from '../camp-blackwood/Blackwood';
 import Home from './Home';
-import Brianna from './Brianna';
-import Tommy from './Tommy';
-import Ryan from './Ryan';
-import Ashlie from './Ashlie';
-import Scott from './Scott';
-import Profile from './Profile';
-import Auth from './Auth';
-import Blog from './Blog';
-import Discussion from './Discussion';
-import CreatePost from './CreatePost';
-import StarfieldEffect from './StarfieldEffect';
-import './App.css';
+import Brianna from '../camp-blackwood/characters/Brianna';
+import Tommy from '../camp-blackwood/characters/Tommy';
+import Ryan from '../camp-blackwood/characters/Ryan';
+import Ashlie from '../camp-blackwood/characters/Ashlie';
+import Scott from '../camp-blackwood/characters/Scott';
+import Profile from '../shared/Profile';
+import Auth from '../shared/Auth';
+import Blog from '../shared/Blog';
+import Discussion from '../shared/Discussion';
+import CreatePost from '../shared/CreatePost';
+import StarfieldEffect from '../utilities/StarfieldEffect';
+import '../../styles/main.css';
 
-const getRouteFromUrl = () => {
-  const params = new URLSearchParams(window.location.search);
-  const page = params.get('page');
-  const supportedPages = [
-    'home',
-    'book',
-    'blog',
-    'discussion',
-    'create-post',
-    'profile',
-    'login',
-    'register',
-    'scott',
-    'brianna',
-    'tommy',
-    'ryan',
-    'ashlie'
-  ];
-  return supportedPages.includes(page || '') ? page : 'home';
+const routePaths = {
+  home: '/',
+  book: '/book',
+  blog: '/blog',
+  discussion: '/discussion',
+  'create-post': '/create-post',
+  profile: '/profile',
+  login: '/login',
+  register: '/register',
+  scott: '/scott',
+  brianna: '/brianna',
+  tommy: '/tommy',
+  ryan: '/ryan',
+  ashlie: '/ashlie'
+};
+
+const getRouteFromPath = () => {
+  const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
+  const foundRoute = Object.entries(routePaths).find(([, path]) => path === currentPath);
+  return foundRoute ? foundRoute[0] : 'home';
 };
 
 function App() {
-  const [route, setRoute] = useState(getRouteFromUrl);
+  const [route, setRoute] = useState(getRouteFromPath);
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [user, setUser] = useState(null);
@@ -60,83 +61,35 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const handleNavigation = () => setRoute(getRouteFromUrl());
+    const handleNavigation = () => setRoute(getRouteFromPath());
     window.addEventListener('popstate', handleNavigation);
     return () => window.removeEventListener('popstate', handleNavigation);
   }, []);
 
-  const openBookPage = () => {
-    const url = new URL(window.location.href);
-    url.searchParams.set('page', 'book');
-    window.history.pushState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
-    setRoute('book');
+  const navigateTo = (nextRoute) => {
+    const nextPath = routePaths[nextRoute] || routePaths.home;
+    window.history.pushState({}, '', nextPath);
+    setRoute(nextRoute);
     window.scrollTo(0, 0);
   };
 
-  const openCharacterPage = (characterPage) => {
-    const url = new URL(window.location.href);
-    url.searchParams.set('page', characterPage);
-    window.history.pushState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
-    setRoute(characterPage);
-    window.scrollTo(0, 0);
-  };
+  const openBookPage = () => navigateTo('book');
 
-  const openProfilePage = () => {
-    const url = new URL(window.location.href);
-    url.searchParams.set('page', 'profile');
-    window.history.pushState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
-    setRoute('profile');
-    window.scrollTo(0, 0);
-  };
+  const openCharacterPage = (characterPage) => navigateTo(characterPage);
 
-  const openBlogPage = () => {
-    const url = new URL(window.location.href);
-    url.searchParams.set('page', 'blog');
-    window.history.pushState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
-    setRoute('blog');
-    window.scrollTo(0, 0);
-  };
+  const openProfilePage = () => navigateTo('profile');
 
-  const openDiscussionPage = () => {
-    const url = new URL(window.location.href);
-    url.searchParams.set('page', 'discussion');
-    window.history.pushState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
-    setRoute('discussion');
-    window.scrollTo(0, 0);
-  };
+  const openBlogPage = () => navigateTo('blog');
 
-  const openCreatePostPage = () => {
-    const url = new URL(window.location.href);
-    url.searchParams.set('page', 'create-post');
-    window.history.pushState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
-    setRoute('create-post');
-    window.scrollTo(0, 0);
-  };
+  const openDiscussionPage = () => navigateTo('discussion');
 
-  const openLoginPage = () => {
-    const url = new URL(window.location.href);
-    url.searchParams.set('page', 'login');
-    window.history.pushState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
-    setRoute('login');
-    window.scrollTo(0, 0);
-  };
+  const openCreatePostPage = () => navigateTo('create-post');
 
-  const openRegisterPage = () => {
-    const url = new URL(window.location.href);
-    url.searchParams.set('page', 'register');
-    window.history.pushState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
-    setRoute('register');
-    window.scrollTo(0, 0);
-  };
+  const openLoginPage = () => navigateTo('login');
 
-  const openHomePage = () => {
-    const url = new URL(window.location.href);
-    url.searchParams.delete('page');
-    const nextUrl = url.search ? `${url.pathname}?${url.searchParams.toString()}` : url.pathname;
-    window.history.pushState({}, '', nextUrl);
-    setRoute('home');
-    window.scrollTo(0, 0);
-  };
+  const openRegisterPage = () => navigateTo('register');
+
+  const openHomePage = () => navigateTo('home');
 
   const renderCharacterPage = () => {
     const characterPages = {

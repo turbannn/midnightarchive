@@ -1,0 +1,75 @@
+﻿.auth-page {
+  min-height: 100vh;
+}
+
+.auth-section {
+  width: min(1320px, 95vw);
+  margin: 0 auto;
+  min-height: 900px;
+  padding: 138px 0 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-card {
+  width: min(520px, 92vw);
+  border-radius: 24px;
+  border: 1px solid var(--sky);
+  background: linear-gradient(165deg, rgba(29, 48, 70, 0.95), rgba(18, 27, 36, 0.96));
+  box-shadow:
+    0 20px 44px rgba(0, 0, 0, 0.34),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  padding: clamp(20px, 3vw, 32px);
+}
+
+.auth-card h1 {
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-form label {
+  font-size: 0.95rem;
+}
+
+.auth-form input {
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid var(--sky);
+  background: rgba(11, 23, 34, 0.58);
+  color: var(--header-text);
+  padding: 0 12px;
+}
+
+.auth-form .primary-button {
+  margin-top: 8px;
+}
+
+.auth-switch-text {
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 0.93rem;
+}
+
+.auth-switch-button {
+  border: 0;
+  background: transparent;
+  color: var(--header-text);
+  text-shadow: var(--header-glow);
+  margin-left: 8px;
+  cursor: pointer;
+  font-size: 0.93rem;
+}
+
+@media (max-width: 900px) {
+  .auth-section {
+    min-height: 800px;
+    padding-top: 124px;
+  }
+}

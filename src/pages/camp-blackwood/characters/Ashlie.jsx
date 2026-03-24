@@ -1,16 +1,16 @@
-import spotifyLogo from './assert/spotify-logo-png.png';
+import spotifyLogo from '../../../assert/spotify-logo-png.png';
 
-function Tommy({ onBackToBook }) {
+function Ashlie({ onBackToBook }) {
   return (
     <main className="scott-page">
       <section className="scott-hero-section">
         <div className="scott-hero-card">
           <div className="scott-hero-content">
             <p className="feature-label">Character Profile</p>
-            <h1>Tommy</h1>
+            <h1>Ashlie</h1>
             <p>
-              Tommy is the restless field runner. He moves fast, improvises under
-              pressure, and turns risky moments into narrow escapes.
+              Ashlie is the emotional center of the team. She reads intention behind
+              words and keeps fragile alliances from collapsing.
             </p>
             <button type="button" className="primary-button" onClick={onBackToBook}>
               Back To Book Page
@@ -19,8 +19,8 @@ function Tommy({ onBackToBook }) {
           <div className="scott-hero-media-wrap">
             <img
               className="scott-hero-media"
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=900&q=80"
-              alt="Tommy portrait placeholder"
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80"
+              alt="Ashlie portrait placeholder"
             />
           </div>
         </div>
@@ -30,12 +30,13 @@ function Tommy({ onBackToBook }) {
         <h2 className="scott-story-title">Story</h2>
         <div className="scott-story-card">
           <p>
-            Tommy learned to navigate abandoned transit lines long before he joined
-            the archive search. His memory of side routes and hidden platforms saves
-            the team more than once, especially when official maps become useless.
-            Under his impulsive confidence is a fear of standing still, because still
-            moments remind him of the night he failed to return in time for someone
-            he loved. His arc centers on facing that guilt instead of outrunning it.
+            Ashlie began as an outsider with access to private audio diaries from
+            families connected to the archive. Her ability to interpret tone, pauses,
+            and contradictions helps the team identify which witnesses are afraid and
+            which are lying. She discovers that the final missing document was never
+            written, only spoken, and that the last recording includes her own family
+            name. Her turning point is choosing transparency over protection when
+            revealing that connection to the group.
           </p>
         </div>
       </section>
@@ -52,7 +53,7 @@ function Tommy({ onBackToBook }) {
               target="_blank"
               rel="noreferrer"
             >
-              Tommy Playlist
+              Ashlie Playlist
             </a>
           </div>
         </div>
@@ -61,4 +62,4 @@ function Tommy({ onBackToBook }) {
   );
 }
 
-export default Tommy;
+export default Ashlie;

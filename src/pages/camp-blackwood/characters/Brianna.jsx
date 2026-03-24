@@ -1,16 +1,17 @@
-import spotifyLogo from './assert/spotify-logo-png.png';
+import spotifyLogo from '../../../assert/spotify-logo-png.png';
 
-function Ryan({ onBackToBook }) {
+function Brianna({ onBackToBook }) {
   return (
     <main className="scott-page">
       <section className="scott-hero-section">
         <div className="scott-hero-card">
           <div className="scott-hero-content">
             <p className="feature-label">Character Profile</p>
-            <h1>Ryan</h1>
+            <h1>Brianna</h1>
             <p>
-              Ryan is the quiet analyst. He transforms scattered clues into clean
-              structures and keeps the group grounded when decisions become chaotic.
+              Brianna is the strategic observer of the group. She notices hidden
+              details, tracks emotional shifts, and always asks the question others
+              avoid.
             </p>
             <button type="button" className="primary-button" onClick={onBackToBook}>
               Back To Book Page
@@ -19,8 +20,8 @@ function Ryan({ onBackToBook }) {
           <div className="scott-hero-media-wrap">
             <img
               className="scott-hero-media"
-              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80"
-              alt="Ryan portrait placeholder"
+              src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80"
+              alt="Brianna portrait placeholder"
             />
           </div>
         </div>
@@ -30,13 +31,13 @@ function Ryan({ onBackToBook }) {
         <h2 className="scott-story-title">Story</h2>
         <div className="scott-story-card">
           <p>
-            Ryan spent years cataloging weather records and municipal failures, a
-            habit that looked obsessive until the archive case proved him right.
-            He uncovers a repeated sequence of outages that matches every major
-            disappearance in the timeline. While others chase dramatic leads, Ryan
-            follows the boring details and finds the real mechanism behind the cover
-            up. His challenge is stepping forward as a leader when the group expects
-            him to remain in the background.
+            Brianna grew up in a district where every family kept a private archive
+            of promises and debts. She became known for decoding patterns in old
+            records and connecting unrelated events into one coherent timeline.
+            During the archive investigation, she is the first to realize that the
+            missing pages were removed intentionally to protect someone still alive.
+            Her personal conflict is learning to trust people over documents when
+            the two tell different truths.
           </p>
         </div>
       </section>
@@ -53,7 +54,7 @@ function Ryan({ onBackToBook }) {
               target="_blank"
               rel="noreferrer"
             >
-              Ryan Playlist
+              Brianna Playlist
             </a>
           </div>
         </div>
@@ -62,4 +63,4 @@ function Ryan({ onBackToBook }) {
   );
 }
 
-export default Ryan;
+export default Brianna;

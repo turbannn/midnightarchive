@@ -1,16 +1,16 @@
-import spotifyLogo from './assert/spotify-logo-png.png';
+import spotifyLogo from '../../../assert/spotify-logo-png.png';
 
-function Ashlie({ onBackToBook }) {
+function Scott({ onBackToBook }) {
   return (
     <main className="scott-page">
       <section className="scott-hero-section">
         <div className="scott-hero-card">
           <div className="scott-hero-content">
             <p className="feature-label">Character Profile</p>
-            <h1>Ashlie</h1>
+            <h1>Scott</h1>
             <p>
-              Ashlie is the emotional center of the team. She reads intention behind
-              words and keeps fragile alliances from collapsing.
+              Placeholder character description. Replace this content with the
+              final biography, key plot role, and emotional arc details.
             </p>
             <button type="button" className="primary-button" onClick={onBackToBook}>
               Back To Book Page
@@ -19,8 +19,8 @@ function Ashlie({ onBackToBook }) {
           <div className="scott-hero-media-wrap">
             <img
               className="scott-hero-media"
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80"
-              alt="Ashlie portrait placeholder"
+              src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80"
+              alt="Scott portrait placeholder"
             />
           </div>
         </div>
@@ -30,13 +30,14 @@ function Ashlie({ onBackToBook }) {
         <h2 className="scott-story-title">Story</h2>
         <div className="scott-story-card">
           <p>
-            Ashlie began as an outsider with access to private audio diaries from
-            families connected to the archive. Her ability to interpret tone, pauses,
-            and contradictions helps the team identify which witnesses are afraid and
-            which are lying. She discovers that the final missing document was never
-            written, only spoken, and that the last recording includes her own family
-            name. Her turning point is choosing transparency over protection when
-            revealing that connection to the group.
+            Scott grew up between cold ports and railway lights, always carrying a
+            notebook with unfinished maps and names. When the city archives were
+            closed after a sudden fire, he started collecting fragments from private
+            letters, cassette recordings, and forgotten station journals. Piece by
+            piece, he discovered that one missing route connected every tragedy in
+            his family line. His journey became less about solving a mystery and
+            more about deciding what truth is worth preserving when memory can hurt
+            as much as silence.
           </p>
         </div>
       </section>
@@ -53,7 +54,7 @@ function Ashlie({ onBackToBook }) {
               target="_blank"
               rel="noreferrer"
             >
-              Ashlie Playlist
+              Scott`s Playlist
             </a>
           </div>
         </div>
@@ -62,4 +63,4 @@ function Ashlie({ onBackToBook }) {
   );
 }
 
-export default Ashlie;
+export default Scott;

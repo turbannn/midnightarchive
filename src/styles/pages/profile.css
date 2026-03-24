@@ -1,0 +1,141 @@
+﻿.profile-page {
+  min-height: 100vh;
+}
+
+.profile-section {
+  width: min(1320px, 95vw);
+  margin: 0 auto;
+  min-height: 900px;
+  padding: 138px 0 46px;
+}
+
+.profile-hero-card,
+.profile-posts-card {
+  border-radius: 24px;
+  border: 1px solid var(--sky);
+  background: linear-gradient(165deg, rgba(29, 48, 70, 0.95), rgba(18, 27, 36, 0.96));
+  box-shadow:
+    0 20px 44px rgba(0, 0, 0, 0.34),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+.profile-hero-card {
+  min-height: 220px;
+  padding: clamp(18px, 2.6vw, 30px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-user-meta {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.profile-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 18px;
+  border: 1px solid var(--sky);
+  object-fit: cover;
+}
+
+.guest-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 23, 34, 0.58);
+}
+
+.guest-avatar svg {
+  width: 66%;
+  height: 66%;
+}
+
+.guest-avatar circle,
+.guest-avatar path {
+  fill: none;
+  stroke: var(--header-text);
+  stroke-width: 1.8;
+}
+
+.profile-user-text h1 {
+  margin: 0 0 10px;
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+}
+
+.profile-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.profile-tags span {
+  min-height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--sky);
+  background: rgba(11, 23, 34, 0.58);
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 0.9rem;
+}
+
+.profile-posts-card {
+  margin-top: 24px;
+  padding: clamp(18px, 2.6vw, 30px);
+}
+
+.profile-posts-card h2 {
+  margin: 0 0 18px;
+  letter-spacing: 0.04em;
+}
+
+.profile-post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.profile-post {
+  border-radius: 14px;
+  border: 1px solid var(--sky);
+  background: rgba(11, 23, 34, 0.58);
+  padding: 14px;
+}
+
+.profile-post h3 {
+  margin: 0 0 8px;
+  font-size: 1.02rem;
+}
+
+.profile-post p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .profile-section {
+    min-height: 800px;
+    padding-top: 124px;
+  }
+
+  .profile-hero-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-post-list {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .profile-user-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

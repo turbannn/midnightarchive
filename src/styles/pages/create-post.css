@@ -1,0 +1,72 @@
+﻿.create-post-page {
+  min-height: 100vh;
+}
+
+.create-post-section {
+  width: min(1320px, 95vw);
+  margin: 0 auto;
+  min-height: 900px;
+  padding: 138px 0 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-post-card {
+  width: min(720px, 92vw);
+  border-radius: 24px;
+  border: 1px solid var(--sky);
+  background: linear-gradient(165deg, rgba(29, 48, 70, 0.95), rgba(18, 27, 36, 0.96));
+  box-shadow:
+    0 20px 44px rgba(0, 0, 0, 0.34),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  padding: clamp(20px, 3vw, 32px);
+}
+
+.create-post-card h1 {
+  margin: 0 0 18px;
+}
+
+.create-post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.create-post-form label {
+  font-size: 0.95rem;
+}
+
+.create-post-form input,
+.create-post-form select,
+.create-post-form textarea {
+  border-radius: 10px;
+  border: 1px solid var(--sky);
+  background: rgba(11, 23, 34, 0.58);
+  color: var(--header-text);
+  padding: 10px 12px;
+  font: inherit;
+}
+
+.create-post-form textarea {
+  resize: vertical;
+}
+
+.create-post-submit {
+  margin-top: 6px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--sky);
+  background: var(--text);
+  color: var(--bg-main);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .create-post-section {
+    min-height: 800px;
+    padding-top: 124px;
+  }
+}

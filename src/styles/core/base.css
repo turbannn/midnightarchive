@@ -1,0 +1,60 @@
+﻿:root {
+  --bg-main: #111f28;
+  --sky: #1b2635;
+  --sky-dark: #121b24;
+  --curtain: #0d1b26;
+  --curtain-light: #1d3046;
+  --text: #a09e9c;
+  --header-text: #beb8b3;
+  --header-glow: 0 0 10px rgba(227, 205, 179, 0.43);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background-color: var(--bg-main);
+  background-image: url('../../assert/space-only-wide.png');
+  background-position: top center;
+  background-repeat: repeat-y;
+  background-size: 70% auto;
+}
+
+.page {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.primary-button {
+  border: 0;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--bg-main);
+  padding: 12px 26px;
+  font-size: 0.96rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+}
+
+@media (max-width: 900px) {
+  body {
+    background-size: 82% auto;
+  }
+}
+
+@media (max-width: 560px) {
+  body {
+    background-size: 100% auto;
+  }
+}
